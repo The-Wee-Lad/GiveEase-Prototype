@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,10 +36,10 @@ export default function Navbar() {
                         {loginOpen && (
                             <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 w-40 flex flex-col z-10">
                                 <button className="text-blue-600 px-4 py-2 hover:bg-gray-200">
-                                    NGO Login
+                                    <NavLink to={'/ngoLogin'}> NGO Login</NavLink>
                                 </button>
                                 <button className="text-green-600 px-4 py-2 hover:bg-gray-200">
-                                    Donor Login
+                                <NavLink to={'/donarLogin'}> Donor Login</NavLink>
                                 </button>
                             </div>
                         )}
@@ -63,10 +64,10 @@ export default function Navbar() {
                     </a>
                     <div className="flex flex-col gap-2 mt-4">
                         <button className="bg-white text-blue-600 px-4 py-2 rounded hover:scale-105 hover:cursor-pointer">
-                            NGO Login
+                           <NavLink to={'/ngoLogin'}> NGO Login</NavLink>
                         </button>
                         <button className="bg-green-500 text-white px-4 py-2 rounded">
-                            Donor Login
+                           <NavLink to={'/donarLogin'}> Donor Login</NavLink>
                         </button>
                     </div>
                 </div>
