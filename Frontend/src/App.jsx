@@ -38,7 +38,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomeLayout />} />
           <Route path="/ngologin" element={<Layout><NGOLogin /></Layout>} />
-          <Route path="/donarlogin" element={<Layout><DonarLogin /></Layout>} />
+          <Route path="/donorlogin" element={<Layout><DonarLogin /></Layout>} />
         </Routes>
       </BrowserRouter>
     </div>
