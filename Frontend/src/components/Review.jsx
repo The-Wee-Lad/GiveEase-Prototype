@@ -49,14 +49,21 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
+<<<<<<< HEAD
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+=======
+>>>>>>> 32f9e5155bb50c3e472c06220d63d81e8f742881
   responsive: [
     {
       breakpoint: 768, 
       settings: {
+<<<<<<< HEAD
         slidesToShow: 1, 
         slidesToScroll: 1,
+=======
+        slidesToShow: 1,
+>>>>>>> 32f9e5155bb50c3e472c06220d63d81e8f742881
       },
     },
   ],
