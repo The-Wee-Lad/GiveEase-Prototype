@@ -22,6 +22,8 @@ app.use(express.static(path.resolve()+"/src/public",cacheOptions));
 app.use(cookieParser());
 
 import userRouter from "../src/routes/user.routes.js";
+import ngoRouter from "../src/routes/ngo.routes.js";
 app.use("/user",userRouter);
+app.use("/ngo",ngoRouter);
 
 export default app;
