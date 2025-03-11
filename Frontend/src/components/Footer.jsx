@@ -17,12 +17,7 @@ const Footer = () => {
                 <div className="w-full md:w-1/3 text-center md:text-left">
                     <h2 className="text-xl font-bold">GiveEase</h2>
                     <p className="text-gray-300 mt-2">   
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nulla facilisi. Pellentesque habitant morbi tristique
-                    senectus et netus et malesuada fames ac turpis egestas.
-                    Aenean efficitur, sapien ut efficitur bibendum, ligula purus
-                    aliquet mi, at hendrerit erat ipsum et eros. Integer
-                    vehicula tortor a erat convallis, vel
+                    GiveEase is a dynamic platform dedicated to supporting NGOs and social causes. It streamlines donations, showcases impactful programs, and fosters community engagement. With transparent operations, user reviews, and interactive features, GiveEase empowers individuals to contribute effectively, making philanthropy accessible and impactful for all.
                     </p>
                     <button className="mt-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 flex items-center gap-2 rounded mx-auto md:mx-0">
                         Contact Us Now <ArrowRight className="w-4 h-4" />
