@@ -1,13 +1,13 @@
 import Carousel from "../components/Carousel";
 import About from "../components/About";
-import Footer from "../components/Footer";
+import Review from "../components/Review";
 
 const Homepage = () => {
     return (
         <>
             <Carousel />
             <About />
-            <Footer />
+            <Review/>
         </>
     );
 };
