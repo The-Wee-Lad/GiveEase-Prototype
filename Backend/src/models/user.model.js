@@ -25,7 +25,8 @@ const contactSchema = new Schema({
 
 const userSchema = new Schema({
     fullname:{
-        type:String
+        type:String,
+        required:[true,"NGO needs a Name"]
     },
     email:{
         type:String,

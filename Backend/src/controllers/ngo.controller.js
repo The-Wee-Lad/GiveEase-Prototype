@@ -1,11 +1,11 @@
 import { cookieOptions } from "../constants.js";
-import { User } from "../models/user.model.js";
+import { Ngo } from "../models/ngo.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js"
 
 
 const generateAccessAndRefreshToken = async(userid) => {
     try {
-        const user = await User.findById(userid);   
+        const user = await Ngo.findById(userid);   
         const accessToken = await user.generateAccessToken();
         const refreshToken = await user.generateRefreshToken();
         user.refreshToken = refreshToken;
@@ -32,7 +32,7 @@ const refreshAccessToken = asyncHandler( async(req, res) => {
             }
         }
         const userid = decodedRefreshToken?._id;
-        const user = await User.findById(userid);
+        const user = await Ngo.findById(userid);
     
         if(!user){
             res.status(401).json(new ApiResponse(401, {}, "Invalid Refresh Token", 719));
@@ -71,7 +71,7 @@ const loginUser = asyncHandler(async (req,res) => {
         return res.status(400).json(new ApiResponse(400, {},"All Fields Required", 700));
     }
 
-    const user = await User.findOne({
+    const user = await Ngo.findOne({
         $or : [
             {username:usernameOrEmail}
             ,{email:usernameOrEmail}
@@ -103,7 +103,7 @@ const loginUser = asyncHandler(async (req,res) => {
 const logoutUser = asyncHandler(async (req, res) => {
     const user_id = req.user?._id;
         // console.log(user_id);
-        const user = await User.findByIdAndUpdate(user_id,{
+        const user = await Ngo.findByIdAndUpdate(user_id,{
             $unset:{refreshToken:""}
         });
         if(!user){
@@ -124,14 +124,14 @@ const registerUser = asyncHandler(async(req, res) => {
     if(!username || !email || !password){
         return res.status(400).json(new ApiResponse(400, {},"All Fields Required", 700));
     }
-    if(await User.findOne({username:username.toLowerCase()})){
+    if(await Ngo.findOne({username:username.toLowerCase()})){
         return res.status(409).json(new ApiResponse(400, {},"Username Already in Use", 701));
     }
-    if(await User.findOne({email:email})){
+    if(await Ngo.findOne({email:email})){
         return res.status(409).json(new ApiResponse(400, {},"Email Already in use", 701));
     }
 
-    const user =await User.create({
+    const user =await Ngo.create({
         username:username,
         email:email,
         password:password,

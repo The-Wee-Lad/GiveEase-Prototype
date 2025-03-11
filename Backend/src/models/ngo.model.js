@@ -23,7 +23,7 @@ const contactSchema = new Schema({
 const ngoSchema = new Schema({
     name:{
         type:String,
-        // required:[true,"NGO needs a Name"]
+        required:[true,"NGO needs a Name"]
     },
     email:{
         type:String,
