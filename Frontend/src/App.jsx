@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from './components/About.jsx';
 import Carousel from './components/Carousel.jsx';
 import Footer from './components/Footer.jsx';
@@ -8,6 +8,7 @@ import NGOLogin from './components/NGOLogin.jsx';
 import Review from './components/Review.jsx';
 import './index.css';
 import DonarLogin from './components/DonarLogin.jsx';
+import Login from './pages/Login.jsx';
 
 const HomeLayout = () => {
   return (
@@ -31,12 +32,28 @@ const Layout = ({ children }) => {
   );
 };
 
+const PrivateRoute = ({ isAuthenticated, ...props }) => {
+  return (
+    isAuthenticated
+      ?
+      <>
+        <Header />
+        <Outlet />
+      </>
+      :
+      <Navigate replace to={'/login'} />
+  )
+}
+
 const App = () => {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   return (
     <div className="overflow-x-hidden">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLayout />} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/ngologin" element={<Layout><NGOLogin /></Layout>} />
           <Route path="/donorlogin" element={<Layout><DonarLogin /></Layout>} />
         </Routes>
