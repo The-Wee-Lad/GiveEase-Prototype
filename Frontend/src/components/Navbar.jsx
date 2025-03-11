@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
@@ -25,19 +25,18 @@ export default function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" className="hover:underline">
+                        <NavLink to="/" className="hover:underline">
                             About
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact" className="hover:underline">
+                        <NavLink to="/" className="hover:underline">
                             Contact
                         </NavLink>
                     </li>
                     <li
                         className="relative"
-                        onMouseEnter={() => setLoginOpen(true)}
-                        onMouseLeave={() => setLoginOpen(false)}
+                        onClick={()=>setLoginOpen(!loginOpen)}
                     >
                         <button className="flex items-center hover:cursor-pointer bg-white text-blue-600 px-4 py-1 rounded">
                             Login
