@@ -1,6 +1,9 @@
 import { cookieOptions } from "../constants.js";
 import { User } from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js"
+import { ApiResponse } from "../utils/ApiResponse.js"
+import { ApiError } from "../utils/ApiError.js"
+
 
 
 const generateAccessAndRefreshToken = async(userid) => {
@@ -118,8 +121,9 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const registerUser = asyncHandler(async(req, res) => {
-    const {username, email, password} = req.body;
-    // console.log(username,email,password);
+    const {name, username, email, password} = req.body;
+
+    console.log(name, username,email,password);
     
     if(!username || !email || !password){
         return res.status(400).json(new ApiResponse(400, {},"All Fields Required", 700));
@@ -132,6 +136,7 @@ const registerUser = asyncHandler(async(req, res) => {
     }
 
     const user =await User.create({
+        fullname:name,
         username:username,
         email:email,
         password:password,
